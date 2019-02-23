@@ -1,12 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CMD="docker run --cpus 2 \
+                --memory 1gb \
+                --memory-swap 0 \
                 --interactive \
-                --name single-core-jdk \
+                --name multi-core \
                 --rm \
                 --tty \
-                --memory 268435546 \
-                --memory-swap 0 \
-                multicore_multi-core-jdk:latest"
+                kurron/docker-amazon-jdk-8-multicore:latest"
 echo $CMD
 $CMD
+

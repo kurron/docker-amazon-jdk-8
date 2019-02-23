@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CMD="docker run --cpus 1 \
+                --memory 1gb \
+                --memory-swap 0 \
                 --interactive \
-                --name single-core-jdk \
+                --name single-core \
                 --rm \
                 --tty \
-                --memory 268435546 \
-                --memory-swap 0 \
-                --volume /var/run/docker.sock:/var/run/docker.sock \
-                singlecore_single-core-jdk:latest"
+                kurron/docker-amazon-jdk-8-single-core:latest"
 echo $CMD
 $CMD
+

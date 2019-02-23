@@ -1,7 +1,6 @@
 # Follows guidance from http://www.projectatomic.io/docs/docker-image-author-guidance/
 
-# Base image off of the official Ubuntu-based image
-FROM azul/zulu-openjdk:8
+FROM amazoncorretto:8
 
 MAINTAINER Ron Kurr <kurr@kurron.org>
 
@@ -14,8 +13,9 @@ chown -R microservice:microservice /home/microservice
 WORKDIR /home/microservice
 
 # Set standard Java environment variables
-ENV JAVA_HOME /usr/lib/jvm/zulu-8-amd64
-ENV JDK_HOME /usr/lib/jvm/zulu-8-amd64
+ENV JAVA_HOME /usr/lib/jvm/java
+ENV JDK_HOME /usr/lib/jvm/java
+ENV JRE_HOME /usr/lib/jvm/jre
 
 # show the JVM version, by default
 CMD ["java", "-version"]

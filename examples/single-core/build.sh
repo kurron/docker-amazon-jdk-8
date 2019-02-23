@@ -1,4 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-javac Hello.java
-docker-compose build
+PROGNAME=$(basename $0)
+error_exit()
+{
+	  echo "${PROGNAME}: ${1:-"Unknown Error"}" 1>&2
+	  exit 1
+}
+
+javac Hello.java || error_exit "Unable to compile sample program."
+docker build --pull --tag kurron/docker-amazon-jdk-8-single-core:latest  . || error_exit "Unable to build image."
+

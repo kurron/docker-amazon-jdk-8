@@ -5,12 +5,12 @@ RAM=${1:-128mb}
 CMD="docker run --cpus 1 \
                 --memory ${RAM} \
                 --memory-swap 0 \
-		--net host \
+		--net bridge \
                 --interactive \
-                --name single-core-jmx \
+                --name single-core-ansible \
                 --rm \
                 --tty \
-                kurron/docker-amazon-jdk-8-single-core-jmx:latest"
+                kurron/docker-amazon-jdk-8-single-core-ansible:latest"
 echo $CMD
 $CMD
 

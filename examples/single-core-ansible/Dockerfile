@@ -4,12 +4,13 @@ FROM kurron/docker-amazon-jdk-8:latest
 
 MAINTAINER Ron Kurr <kurr@kurron.org>
 
-ADD launch-jvm.sh /home/microservice/launch-jvm.sh
-RUN chmod a+x /home/microservice/launch-jvm.sh
-ADD Hello.class /home/microservice/Hello.class
+USER root
+
+RUN curl --output /tmp/get-pip.py https://bootstrap.pypa.io/get-pip.py
+RUN python /tmp/get-pip.py
+RUN pip install ansible
 
 # Switch to the non-root user and the home directory
 USER microservice
 
-# Run the simple program
-ENTRYPOINT ["/home/microservice/launch-jvm.sh", "Hello"]
+CMD ["/usr/bin/ansible", "all", "--inventory=localhost,", "--verbose", "--connection=local", "-m setup"]

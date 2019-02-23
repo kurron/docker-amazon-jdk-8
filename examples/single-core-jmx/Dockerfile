@@ -1,6 +1,6 @@
 # Follows guidance from http://www.projectatomic.io/docs/docker-image-author-guidance/
 
-FROM dockerazuljdk8_azul-jdk:latest
+FROM kurron/docker-amazon-jdk-8:latest
 
 MAINTAINER Ron Kurr <kurr@kurron.org>
 

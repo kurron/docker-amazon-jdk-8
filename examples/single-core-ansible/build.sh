@@ -7,5 +7,5 @@ error_exit()
 	  exit 1
 }
 
-docker build --pull --tag kurron/docker-amazon-jdk-8:latest  . || error_exit "Unable to build image."
+docker build --pull --tag kurron/docker-amazon-jdk-8-single-core-ansible:latest  . || error_exit "Unable to build image."
 
