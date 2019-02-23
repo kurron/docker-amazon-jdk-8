@@ -2,12 +2,11 @@
 This project is a simple Docker image that provides access to the
 [Amazon Corretto JDK](https://aws.amazon.com/corretto/).  It is intended
 for **running** JVM applications, not building and testing them. If you
-need to build a JVM application, [look at this project](https://github.com/kurron/docker-azul-jdk-8-build).
+need to build a JVM application, [look at this project](https://github.com/kurron/docker-amazon-jdk-8-build).
 
 
 # Prerequisites
 * a working [Docker](http://docker.io) engine
-* a working [Docker Compose](http://docker.io) installation
 
 # Building
 Type `./build.sh` to build the image.
